@@ -75,9 +75,9 @@ class ManageCustomers {
      *
      * @return array
      */
-    public function get_vendor_customers() {
+    public static function get_vendor_customers() {
         global $wpdb;
-        $comma_separated_order_ids = implode( ',', $this->get_vendor_orders() );
+        $comma_separated_order_ids = implode( ',', self::get_vendor_orders() );
 		$customer_ids = $wpdb->get_col( "SELECT DISTINCT meta_value  FROM $wpdb->postmeta WHERE meta_key = '_customer_user' AND meta_value > 0 AND post_id IN ({$comma_separated_order_ids})" );
         return $customer_ids;
     }

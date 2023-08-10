@@ -6,6 +6,7 @@
  *
  *  @package dokan
  */
+use WeLabs\DokanCustomers\ManageCustomers;
 ?>
 
 <?php do_action( 'dokan_dashboard_wrap_start' ); ?>
@@ -53,6 +54,8 @@
         <article class="dokan-staffs-area">
 
             <?php
+                $vendor_customers = ManageCustomers::get_vendor_customers();
+
 
                 $seller_id    = get_current_user_id();
                 $paged        = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
@@ -65,7 +68,7 @@
                     )
                 );
 
-				if ( count( $staffs['staffs'] ) > 0 ) {
+				if ( count( $vendor_customers ) > 0 ) {
 					?>
                     <table class="dokan-table dokan-table-striped vendor-staff-table">
                         <thead>
@@ -75,31 +78,29 @@
                                 <th><?php esc_html_e( 'Phone', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Orders', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Total Spend', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Address', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Registered At', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Action', 'dokan-customers' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
 						<?php
-						foreach ( $staffs['staffs'] as $staff ) {
+						foreach ( $vendor_customers as $customer ) {
+                            $customer_info = get_userdata( $customer );
+                            // var_dump( $customer_info );
 							?>
-                                <tr >
+                                <tr>
+                                    <td><?php echo $customer_info->first_name . ' ' . $customer_info->last_name; ?></td>
+                                    <td><?php echo $customer_info->user_email; ?></td>
+                                    <td><?php echo get_user_meta( $customer_info->ID, 'billing_phone', true ); ?></td>
+                                    <td><?php echo count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ); ?></td>
                                     <td>
-									<?php
-										$edit_url = add_query_arg(
-                                            array(
-												'view' => 'add_staffs',
-												'action' => 'edit',
-												'staff_id' => $staff->ID,
-                                            ), dokan_get_navigation_url( 'staffs' )
-                                        );
-									?>
-
-									<?php printf( '<a href="%s">%s</a>', esc_url( $edit_url ), $staff->display_name ); ?>
+                                    <?php
+                                        $orders = dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() );
+                                        var_dump( $orders );
+                                    ?>
                                     </td>
-                                    <td><?php echo $staff->user_email; ?></td>
-                                    <td><?php echo get_user_meta( $staff->ID, '_staff_phone', true ); ?></td>
-                                    <td><?php echo dokan_format_datetime( $staff->user_registered ); ?></td>
+                                    <td><?php echo dokan_format_datetime( $customer_info->user_registered ); ?></td>
+                                    <td><a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="#" data-toggle="tooltip" data-placement="top" title="<?php esc_attr__( 'View Details', 'dokan-customers' ); ?>"><i class="far fa-eye">&nbsp;</i></a></td>
                                 </tr>
                             <?php } ?>
 
