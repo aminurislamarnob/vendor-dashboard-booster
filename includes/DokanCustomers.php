@@ -84,9 +84,9 @@ final class DokanCustomers {
      */
     public function activate() {
         // Rewrite rules during dokan_customers activation
-        if ( $this->has_woocommerce() ) {
-            $this->flush_rewrite_rules();
-        }
+        // if ( $this->has_woocommerce() ) {
+        //     $this->flush_rewrite_rules();
+        // }
     }
 
     /**
@@ -176,6 +176,7 @@ final class DokanCustomers {
      */
     public function init_classes() {
         $this->container['scripts'] = new Assets();
+        new ManageCustomers();
     }
 
     /**
