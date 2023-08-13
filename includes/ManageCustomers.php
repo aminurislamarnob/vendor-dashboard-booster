@@ -81,4 +81,16 @@ class ManageCustomers {
 		$customer_ids = $wpdb->get_col( "SELECT DISTINCT meta_value  FROM $wpdb->postmeta WHERE meta_key = '_customer_user' AND meta_value > 0 AND post_id IN ({$comma_separated_order_ids})" );
         return $customer_ids;
     }
+
+    public static function get_total_spend_by_seller_customer( $customer_id, $seller_id ) {
+        $order_ids = dokan_get_customer_orders_by_seller( $customer_id, $seller_id );
+        $total_spend = 0;
+        if ( is_array( $order_ids ) && count( $order_ids ) > 0 ) {
+			foreach ( $order_ids as $order_id ) {
+				$order = wc_get_order( $order_id );
+				$total_spend += $order->get_total();
+			}
+		}
+        return wc_price( $total_spend );
+    }
 }

@@ -93,12 +93,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
                                     <td><?php echo $customer_info->user_email; ?></td>
                                     <td><?php echo get_user_meta( $customer_info->ID, 'billing_phone', true ); ?></td>
                                     <td><?php echo count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ); ?></td>
-                                    <td>
-                                    <?php
-                                        $orders = dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() );
-                                        var_dump( $orders );
-                                    ?>
-                                    </td>
+                                    <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
                                     <td><?php echo dokan_format_datetime( $customer_info->user_registered ); ?></td>
                                     <td><a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="#" data-toggle="tooltip" data-placement="top" title="<?php esc_attr__( 'View Details', 'dokan-customers' ); ?>"><i class="far fa-eye">&nbsp;</i></a></td>
                                 </tr>
