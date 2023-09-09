@@ -85,7 +85,9 @@ use WeLabs\DokanCustomers\ManageCustomers;
                                     <td><?php echo $customer_info->first_name . ' ' . $customer_info->last_name; ?></td>
                                     <td><?php echo $customer_info->user_email; ?></td>
                                     <td><?php echo get_user_meta( $customer_info->ID, 'billing_phone', true ); ?></td>
-                                    <td><?php echo count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ); ?></td>
+                                    <td>
+                                        <?php echo count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ); ?> 
+                                        <?php printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s">%s</a> ', esc_url( dokan_get_navigation_url( 'orders' ) . '?customer_id=' . $customer_info->ID . '&seller_order_filter_nonce=' . wp_create_nonce( 'seller-order-filter-nonce' ) ), esc_attr( 'View Orders' ), '<i class="far fa-eye"></i>' ); ?>
                                     <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
                                     <td><?php echo dokan_format_datetime( $customer_info->user_registered ); ?></td>
                                 </tr>
