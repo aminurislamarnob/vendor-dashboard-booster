@@ -10,11 +10,12 @@ class ManageCustomers {
         add_filter( 'dokan_query_var_filter', [ $this, 'dokan_load_document_menu' ] );
         add_filter( 'dokan_get_dashboard_nav', [ $this, 'dokan_add_customers_menu' ] );
         add_action( 'dokan_load_custom_template', [ $this, 'dokan_load_customers_template' ] );
-        // add_filter( 'woocommerce_my_account_my_address_formatted_address', [ $this, 'formatted_address_for_customer_table' ], 10, 3 );
 
         // flash rewrite rules
         dokan()->rewrite->register_rule();
         flush_rewrite_rules();
+
+        $this->get_customers();
     }
 
     /**
@@ -63,7 +64,7 @@ class ManageCustomers {
      * @return array
      */
     public function dokan_add_customers_menu( $urls ) {
-        $urls['help'] = array(
+        $urls['customers'] = array(
             'title' => __( 'Customers', 'dokan-customers' ),
             'icon'  => '<i class="fas fa-users"></i>',
             'url'   => dokan_get_navigation_url( 'customers' ),
@@ -106,10 +107,17 @@ class ManageCustomers {
     public static function get_vendor_customers() {
         global $wpdb;
         $comma_separated_order_ids = implode( ',', self::get_vendor_orders() );
-		$customer_ids = $wpdb->get_col( "SELECT DISTINCT meta_value  FROM $wpdb->postmeta WHERE meta_key = '_customer_user' AND meta_value > 0 AND post_id IN ({$comma_separated_order_ids})" );
+		$customer_ids = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = '_customer_user' AND meta_value > 0 AND post_id IN ({$comma_separated_order_ids})" );
         return $customer_ids;
     }
 
+    /**
+     * Get total spend of a customer by customer & seller id
+     *
+     * @param int $customer_id
+     * @param int $seller_id
+     * @return string
+     */
     public static function get_total_spend_by_seller_customer( $customer_id, $seller_id ) {
         $order_ids = dokan_get_customer_orders_by_seller( $customer_id, $seller_id );
         $total_spend = 0;
