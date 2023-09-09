@@ -23,7 +23,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_before' );
-        do_action( 'dokan_staffs_content_before' );
+        do_action( 'dokan_customers_content_before' );
 
     ?>
 
@@ -41,13 +41,13 @@ use WeLabs\DokanCustomers\ManageCustomers;
         <?php
 
             /**
-             *  dokan_staffs_content_inside_before hook
+             *  dokan_customers_content_inside_before hook
              *
              *  @hooked show_seller_enable_message
              *
              *  @since 2.4
              */
-            do_action( 'dokan_staffs_content_inside_before' );
+            do_action( 'dokan_customers_content_inside_before' );
         ?>
 
 
@@ -61,15 +61,10 @@ use WeLabs\DokanCustomers\ManageCustomers;
                 $paged        = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
                 $limit        = 10;
                 $offset       = ( $paged - 1 ) * $limit;
-                $staffs       = dokan_get_all_vendor_staffs(
-                    array(
-						'number' => $limit,
-						'offset' => $offset,
-                    )
-                );
+                $customers = array_slice( $vendor_customers, $offset, $limit );
 
-				if ( count( $vendor_customers ) > 0 ) {
-					?>
+			if ( count( $customers ) > 0 ) {
+				?>
                     <table class="dokan-table dokan-table-striped vendor-staff-table">
                         <thead>
                             <tr>
@@ -79,15 +74,13 @@ use WeLabs\DokanCustomers\ManageCustomers;
                                 <th><?php esc_html_e( 'Orders', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Total Spend', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Registered At', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Action', 'dokan-customers' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
-						<?php
-						foreach ( $vendor_customers as $customer ) {
-                            $customer_info = get_userdata( $customer );
-                            // var_dump( $customer_info );
-							?>
+					<?php
+					foreach ( $customers as $customer ) {
+						$customer_info = get_userdata( $customer );
+						?>
                                 <tr>
                                     <td><?php echo $customer_info->first_name . ' ' . $customer_info->last_name; ?></td>
                                     <td><?php echo $customer_info->user_email; ?></td>
@@ -95,7 +88,6 @@ use WeLabs\DokanCustomers\ManageCustomers;
                                     <td><?php echo count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ); ?></td>
                                     <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
                                     <td><?php echo dokan_format_datetime( $customer_info->user_registered ); ?></td>
-                                    <td><a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="#" data-toggle="tooltip" data-placement="top" title="<?php esc_attr__( 'View Details', 'dokan-customers' ); ?>"><i class="far fa-eye">&nbsp;</i></a></td>
                                 </tr>
                             <?php } ?>
 
@@ -104,10 +96,10 @@ use WeLabs\DokanCustomers\ManageCustomers;
                     </table>
 
 						<?php
-						$user_count = $staffs['total_users'];
+						$user_count = count( $vendor_customers );
 						$num_of_pages = ceil( $user_count / $limit );
 
-						$base_url = dokan_get_navigation_url( 'staffs' );
+						$base_url = dokan_get_navigation_url( 'customers' );
 
 						if ( $num_of_pages > 1 ) {
 							echo '<div class="pagination-wrap">';
@@ -163,11 +155,11 @@ use WeLabs\DokanCustomers\ManageCustomers;
         <?php
 
             /**
-             *  dokan_staffs_content_inside_after hook
+             *  dokan_customers_content_inside_after hook
              *
              *  @since 2.4
              */
-            do_action( 'dokan_staffs_content_inside_after' );
+            do_action( 'dokan_customers_content_inside_after' );
         ?>
 
     </div> <!-- #primary .content-area -->
@@ -176,12 +168,12 @@ use WeLabs\DokanCustomers\ManageCustomers;
 
         /**
          *  dokan_dashboard_content_after hook
-         *  dokan_staffs_content_after hook
+         *  dokan_customers_content_after hook
          *
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_after' );
-        do_action( 'dokan_staffs_content_after' );
+        do_action( 'dokan_customers_content_after' );
 
     ?>
 

@@ -10,7 +10,6 @@ class ManageCustomers {
         add_filter( 'dokan_query_var_filter', [ $this, 'dokan_load_document_menu' ] );
         add_filter( 'dokan_get_dashboard_nav', [ $this, 'dokan_add_customers_menu' ] );
         add_action( 'dokan_load_custom_template', [ $this, 'dokan_load_customers_template' ] );
-        // add_action( 'init', [ $this, 'get_vendor_customers' ] );
 
         // flash rewrite rules
         dokan()->rewrite->register_rule();
@@ -61,7 +60,7 @@ class ManageCustomers {
      *
      * @return array
      */
-    public function get_vendor_orders() {
+    public static function get_vendor_orders() {
         $query_args = [
             'seller_id' => dokan_get_current_user_id(),
             'limit'     => 10000000,

@@ -83,10 +83,11 @@ final class DokanCustomers {
      * Nothing being called here yet.
      */
     public function activate() {
-        // Rewrite rules during dokan_customers activation
-        // if ( $this->has_woocommerce() ) {
-        //     $this->flush_rewrite_rules();
-        // }
+        // Check dependency plugins
+        if ( ! $this->check_dependencies() ) {
+            add_action( 'admin_notices', [ $this, 'admin_error_notice_for_dependency_missing' ] );
+            return;
+        }
     }
 
     /**
@@ -143,6 +144,12 @@ final class DokanCustomers {
      * @return void
      */
     public function init_plugin() {
+        // Check dependency plugins
+        if ( ! $this->check_dependencies() ) {
+            add_action( 'admin_notices', [ $this, 'admin_error_notice_for_dependency_missing' ] );
+            return;
+        }
+
         $this->includes();
         $this->init_hooks();
 
@@ -193,24 +200,38 @@ final class DokanCustomers {
     }
 
     /**
-     * Check whether woocommerce is installed and active
+     * Check plugin dependencies
      *
-     * @since 2.9.16
-     *
-     * @return bool
+     * @return boolean
      */
-    public function has_woocommerce() {
-        return class_exists( 'WooCommerce' );
+    public function check_dependencies() {
+        if ( ! class_exists( 'WooCommerce' ) || ! class_exists( 'WeDevs_Dokan' ) ) {
+            return false;
+        }
+
+        if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) || ! is_plugin_active( 'dokan-lite/dokan.php' ) ) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
-     * Check whether woocommerce is installed
+     * Dependency error message
      *
-     * @since 3.2.8
-     *
-     * @return bool
+     * @return void
      */
-    public function is_woocommerce_installed() {
-        return in_array( 'woocommerce/woocommerce.php', array_keys( get_plugins() ), true );
+    protected function get_dependency_message() {
+        return __( 'Dokan customer plugin is enabled but not effective. It requires WooCommerce & Dokan Lite(Free) plugins to work.', 'dokan-customers' );
+    }
+
+    /**
+     * Admin error notice for missing dependency plugins
+     *
+     * @return void
+     */
+    public function admin_error_notice_for_dependency_missing() {
+        $class = 'notice notice-error';
+		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $this->get_dependency_message() ) );
     }
 }
