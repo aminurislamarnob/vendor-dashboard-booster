@@ -43,3 +43,6 @@ table.dokan-table.dokan-table-striped.vendor-customer-table {
 table.dokan-table.dokan-table-striped.vendor-customer-table thead tr th {
     border-bottom: 0px;
 }
+.customer-billing-address{
+    width: 220px;
+}

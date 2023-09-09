@@ -10,11 +10,40 @@ class ManageCustomers {
         add_filter( 'dokan_query_var_filter', [ $this, 'dokan_load_document_menu' ] );
         add_filter( 'dokan_get_dashboard_nav', [ $this, 'dokan_add_customers_menu' ] );
         add_action( 'dokan_load_custom_template', [ $this, 'dokan_load_customers_template' ] );
+        // add_filter( 'woocommerce_my_account_my_address_formatted_address', [ $this, 'formatted_address_for_customer_table' ], 10, 3 );
 
         // flash rewrite rules
         dokan()->rewrite->register_rule();
         flush_rewrite_rules();
     }
+
+    /**
+     * Get account formatted address.
+     *
+     * @param  string $address_type Address type.
+     *                              Accepts: 'billing' or 'shipping'.
+     *                              Default to 'billing'.
+     * @param  int    $customer_id  Customer ID.
+     *                              Default to 0.
+     * @return string
+     */
+	public static function get_formatted_address( $address_type = 'billing', $customer_id = 0 ) {
+        $getter  = "get_{$address_type}";
+		$address = array();
+
+		if ( 0 === $customer_id ) {
+			$customer_id = get_current_user_id();
+		}
+
+		$customer = new \WC_Customer( $customer_id );
+
+		if ( is_callable( array( $customer, $getter ) ) ) {
+			$address = $customer->$getter();
+			unset( $address['first_name'], $address['last_name'], $address['company'], $address['email'], $address['tel'] );
+		}
+
+		return WC()->countries->get_formatted_address( $address, ', ' );
+	}
 
     /**
      * Load dokan customer document menu

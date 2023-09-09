@@ -74,6 +74,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
                                 <th><?php esc_html_e( 'Orders', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Total Spend', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Registered At', 'dokan-customers' ); ?></th>
+                                <th class="customer-billing-address"><?php esc_html_e( 'Billing Address', 'dokan-customers' ); ?></th>
                                 <th><?php esc_html_e( 'Actions', 'dokan-customers' ); ?></th>
                             </tr>
                         </thead>
@@ -85,11 +86,12 @@ use WeLabs\DokanCustomers\ManageCustomers;
 						?>
                                 <tr>
                                     <td><?php echo esc_html( $customer_full_name ); ?></td>
-                                    <td><?php echo esc_html( $customer_info->user_email ); ?></td>
+                                    <td><a href="mailto:<?php echo esc_attr( $customer_info->user_email ); ?>"><?php echo esc_html( $customer_info->user_email ); ?></a></td>
                                     <td><?php echo esc_html( get_user_meta( $customer_info->ID, 'billing_phone', true ) ); ?></td>
                                     <td><?php echo esc_html( count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ) ); ?></td>
                                     <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
                                     <td><?php echo esc_html( dokan_format_datetime( $customer_info->user_registered ) ); ?></td>
+                                    <td><?php echo esc_html( ManageCustomers::get_formatted_address( 'billing', $customer_info->ID ) ); ?></td>
                                     <td><?php printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s">%s</a> ', esc_url( dokan_get_navigation_url( 'orders' ) . '?customer_id=' . $customer_info->ID . '&seller_order_filter_nonce=' . wp_create_nonce( 'seller-order-filter-nonce' ) ), esc_attr( 'View Orders' ), '<i class="far fa-eye"></i>' ); ?></td>
                                 </tr>
                             <?php } ?>
