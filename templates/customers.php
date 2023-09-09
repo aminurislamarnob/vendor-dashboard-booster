@@ -27,7 +27,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
 
     ?>
 
-    <div class="dokan-dashboard-content dokan-staffs-content">
+    <div class="dokan-dashboard-content dokan-customers-content">
 
         <header class="dokan-dashboard-header">
             <span class="left-header-content">
@@ -51,7 +51,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
         ?>
 
 
-        <article class="dokan-staffs-area">
+        <article class="dokan-customers-area">
 
             <?php
                 $vendor_customers = ManageCustomers::get_vendor_customers();
@@ -65,7 +65,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
 
 			if ( count( $customers ) > 0 ) {
 				?>
-                    <table class="dokan-table dokan-table-striped vendor-staff-table">
+                    <table class="dokan-table dokan-table-striped vendor-customer-table">
                         <thead>
                             <tr>
                                 <th><?php esc_html_e( 'Name', 'dokan-customers' ); ?></th>
@@ -80,16 +80,17 @@ use WeLabs\DokanCustomers\ManageCustomers;
 					<?php
 					foreach ( $customers as $customer ) {
 						$customer_info = get_userdata( $customer );
+                        $customer_full_name = $customer_info->first_name . ' ' . $customer_info->last_name;
 						?>
                                 <tr>
-                                    <td><?php echo $customer_info->first_name . ' ' . $customer_info->last_name; ?></td>
-                                    <td><?php echo $customer_info->user_email; ?></td>
-                                    <td><?php echo get_user_meta( $customer_info->ID, 'billing_phone', true ); ?></td>
+                                    <td><?php echo esc_html( $customer_full_name ); ?></td>
+                                    <td><?php echo esc_html( $customer_info->user_email ); ?></td>
+                                    <td><?php echo esc_html( get_user_meta( $customer_info->ID, 'billing_phone', true ) ); ?></td>
                                     <td>
-                                        <?php echo count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ); ?> 
+                                        <?php echo esc_html( count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ) ); ?> 
                                         <?php printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s">%s</a> ', esc_url( dokan_get_navigation_url( 'orders' ) . '?customer_id=' . $customer_info->ID . '&seller_order_filter_nonce=' . wp_create_nonce( 'seller-order-filter-nonce' ) ), esc_attr( 'View Orders' ), '<i class="far fa-eye"></i>' ); ?>
                                     <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
-                                    <td><?php echo dokan_format_datetime( $customer_info->user_registered ); ?></td>
+                                    <td><?php echo esc_html( dokan_format_datetime( $customer_info->user_registered ) ); ?></td>
                                 </tr>
                             <?php } ?>
 
@@ -133,27 +134,6 @@ use WeLabs\DokanCustomers\ManageCustomers;
 
         </article>
 
-        <style>
-            table.vendor-staff-table tbody td a,
-            table.vendor-staff-table tbody td .row-actions a {
-                color: #6d6d6d;
-            }
-
-            table.vendor-staff-table tbody td a:hover,
-            table.vendor-staff-table tbody td .row-actions a:hover {
-                color: #000;
-            }
-
-            table.vendor-staff-table tbody td .row-actions .delete a:hover {
-                color: #ff0000;
-            }
-
-            table.vendor-staff-table tbody .row-actions {
-                font-size: 12px;
-            }
-        </style>
-
-
         <?php
 
             /**
@@ -182,23 +162,3 @@ use WeLabs\DokanCustomers\ManageCustomers;
 </div><!-- .dokan-dashboard-wrap -->
 
 <?php do_action( 'dokan_dashboard_wrap_end' ); ?>
-
-<style>
-.vendor-staff-table tbody .row-actions {
-    visibility: hidden;
-    font-size: 12px;
-    color: #ccc;
-}
-
-.vendor-staff-table tbody .row-actions .delete a {
-    color: #A05;
-}
-
-.vendor-staff-table tbody .row-actions .delete a:hover {
-    color: red;
-}
-
-.vendor-staff-table tbody tr:hover .row-actions {
-    visibility: visible;
-}
-</style>

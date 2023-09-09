@@ -1,3 +1,7 @@
 1. Vendor & Customer Communication Module: https://github.com/weDevsOfficial/dokan/issues/1405
 2. Added a list of unregistered users.
 3. Maybe we can add feature to show specific customer orders
+
+*****
+4. Customer name clickable and customer details info with customer purchased product list.
+4. Customer wise order list
