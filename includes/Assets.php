@@ -37,8 +37,8 @@ class Assets {
         $admin_script       = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/admin/script.js';
         $frontend_script    = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/frontend/script.js';
 
-        wp_register_script( 'dokan_customers_admin_script', $admin_script, [], filemtime( DOKAN_CUSTOMERS_DIR . '/assets/admin/script.js' ), true );
-        wp_register_script( 'dokan_customers_script', $frontend_script, [], filemtime( DOKAN_CUSTOMERS_DIR . '/assets/frontend/script.js' ), true );
+        wp_register_script( 'dokan_customers_admin_script', $admin_script, [], DOKAN_CUSTOMERS_PLUGIN_VERSION, true );
+        wp_register_script( 'dokan_customers_script', $frontend_script, [], DOKAN_CUSTOMERS_PLUGIN_VERSION, true );
     }
 
     /**
@@ -50,8 +50,8 @@ class Assets {
         $admin_style       = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/admin/style.css';
         $frontend_style    = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/frontend/style.css';
 
-        wp_register_style( 'dokan_customers_admin_style', $admin_style, [], filemtime( DOKAN_CUSTOMERS_DIR . '/assets/admin/style.css' ) );
-        wp_register_style( 'dokan_customers_style', $frontend_style, [], filemtime( DOKAN_CUSTOMERS_DIR . '/assets/frontend/style.css' ) );
+        wp_register_style( 'dokan_customers_admin_style', $admin_style, [], DOKAN_CUSTOMERS_PLUGIN_VERSION );
+        wp_register_style( 'dokan_customers_style', $frontend_style, [], DOKAN_CUSTOMERS_PLUGIN_VERSION );
     }
 
     /**
@@ -72,6 +72,7 @@ class Assets {
      * @return void
      */
     public function enqueue_front_scripts() {
+        wp_enqueue_style( 'dokan_customers_style' );
         wp_enqueue_script( 'dokan_customers_script' );
         wp_localize_script(
             'dokan_customers_script', 'Dokan_Customers', []

@@ -32,3 +32,14 @@ table.vendor-customer-table tbody .row-actions {
 .vendor-customer-table tbody tr:hover .row-actions {
     visibility: visible;
 }
+table.dokan-table.dokan-table-striped.vendor-customer-table th {
+    text-align: left;
+}
+
+table.dokan-table.dokan-table-striped.vendor-customer-table {
+    border-collapse: collapse;
+}
+
+table.dokan-table.dokan-table-striped.vendor-customer-table thead tr th {
+    border-bottom: 0px;
+}
