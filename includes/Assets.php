@@ -73,9 +73,9 @@ class Assets {
      */
     public function enqueue_front_scripts() {
         wp_enqueue_style( 'dokan_customers_style' );
-        wp_enqueue_script( 'dokan_customers_script' );
-        wp_localize_script(
-            'dokan_customers_script', 'Dokan_Customers', []
-        );
+        // wp_enqueue_script( 'dokan_customers_script' );
+        // wp_localize_script(
+        //     'dokan_customers_script', 'Dokan_Customers', []
+        // );
     }
 }

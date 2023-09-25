@@ -10,12 +10,17 @@ class ManageCustomers {
         add_filter( 'dokan_query_var_filter', [ $this, 'dokan_load_document_menu' ] );
         add_filter( 'dokan_get_dashboard_nav', [ $this, 'dokan_add_customers_menu' ] );
         add_action( 'dokan_load_custom_template', [ $this, 'dokan_load_customers_template' ] );
+        $this->flush();
+    }
 
-        // flash rewrite rules
+    /**
+     * Flush rewrite rules
+     *
+     * @return void
+     */
+    public function flush(){
         dokan()->rewrite->register_rule();
         flush_rewrite_rules();
-
-        $this->get_customers();
     }
 
     /**
