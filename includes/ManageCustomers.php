@@ -124,7 +124,7 @@ class ManageCustomers {
      * @return string
      */
     public static function get_total_spend_by_seller_customer( $customer_id, $seller_id ) {
-        $order_ids = dokan_get_customer_orders_by_seller( $customer_id, $seller_id );
+        $order_ids = dokan()->order->get_customer_order_ids_by_seller( $customer_id, $seller_id );
         $total_spend = 0;
         if ( is_array( $order_ids ) && count( $order_ids ) > 0 ) {
 			foreach ( $order_ids as $order_id ) {

@@ -22,8 +22,7 @@
         "phpcompatibility/phpcompatibility-wp": "dev-master",
         "phpunit/phpunit": "~8.5",
         "wp-phpunit/wp-phpunit": "^6.1",
-        "yoast/phpunit-polyfills": "^1.0",
-        "symfony/var-dumper": "6.4.x-dev"
+        "yoast/phpunit-polyfills": "^1.0"
     },
    "scripts": {
         "phpcs": [

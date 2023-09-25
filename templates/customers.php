@@ -88,7 +88,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
                                     <td><?php echo esc_html( $customer_full_name ); ?></td>
                                     <td><a href="mailto:<?php echo esc_attr( $customer_info->user_email ); ?>"><?php echo esc_html( $customer_info->user_email ); ?></a></td>
                                     <td><?php echo esc_html( get_user_meta( $customer_info->ID, 'billing_phone', true ) ); ?></td>
-                                    <td><?php echo esc_html( count( dokan_get_customer_orders_by_seller( $customer_info->ID, get_current_user_id() ) ) ); ?></td>
+                                    <td><?php echo esc_html( count(dokan()->order->get_customer_order_ids_by_seller( $customer_info->ID, get_current_user_id() ) ) ); ?></td>
                                     <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
                                     <td><?php echo esc_html( dokan_format_datetime( $customer_info->user_registered ) ); ?></td>
                                     <td><?php echo esc_html( ManageCustomers::get_formatted_address( 'billing', $customer_info->ID ) ); ?></td>

@@ -1,15 +1,15 @@
 <?php
-/**
- * Plugin Name: Dokan Customers
- * Plugin URI:  https://wordpress.org/plugins/dokan-customers
- * Description: A dokan addon plugin which enable vendor wise customers features on each vendor panel.
- * Version: 0.0.1
- * Author: Aminur Islam Arnob
- * Author URI: https://wordpress.org/plugins/dokan-customers
- * Text Domain: dokan-customers
- * WC requires at least: 5.0.0
- * Domain Path: /languages/
- * License: GPLv2 or later
+/*
+Plugin Name: Dokan Customers
+Plugin URI:  https://wordpress.org/plugins/dokan-customers/
+Description: A dokan addon plugin which enable vendor wise customers features on each vendor panel.
+Version: 1.0.0
+Author: Aminur Islam
+Author URI: https://github.com/aminurislamarnob
+Text Domain: dokan-customers
+WC requires at least: 5.0.0
+Domain Path: /languages
+License: GPLv2 or later
  */
 use WeLabs\DokanCustomers\DokanCustomers;
 
