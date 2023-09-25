@@ -13,6 +13,7 @@ This plugin simply enable vendor customer's list page on vendor panel.
 == Description ==
 
 This is an extension plugin for the popular multi-vendor plugin Dokan. It enables a feature that displays a list of each vendor's customers on the vendor panel. By clicking "Customers" menu from vendor dashboard, vendor can view customer's names, email addresses, phone numbers, total orders by each customer, total spending by customers, registration date, and billing address. Vendors can also access the list of orders for each customer by clicking on the 'View Orders' button in each table row.
+This plugin requires WooCommerce and Dokan Lite (Free) plugins to be activated in order to work.
 
 == Installation ==
 
