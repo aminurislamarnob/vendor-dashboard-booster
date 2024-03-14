@@ -1,6 +1,6 @@
 <?php
 
-namespace WeLabs\DokanCustomers;
+namespace WeLabs\VendorDashboardBooster;
 
 class ManageCustomers {
     /**
@@ -86,7 +86,7 @@ class ManageCustomers {
      */
     public function dokan_load_customers_template( $query_vars ) {
         if ( isset( $query_vars['customers'] ) ) {
-            require_once DOKAN_CUSTOMERS_TEMPLATE_DIR . '/customers.php';
+            require_once VENDOR_DASHBOARD_BOOSTER_TEMPLATE_DIR . '/customers.php';
 		}
     }
 

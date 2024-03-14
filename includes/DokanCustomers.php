@@ -1,13 +1,13 @@
 <?php
 
-namespace WeLabs\DokanCustomers;
+namespace WeLabs\VendorDashboardBooster;
 
 /**
- * DokanCustomers class
+ * VendorDashboardBooster class
  *
- * @class DokanCustomers The class that holds the entire DokanCustomers plugin
+ * @class VendorDashboardBooster The class that holds the entire VendorDashboardBooster plugin
  */
-final class DokanCustomers {
+final class VendorDashboardBooster {
 
     /**
      * Plugin version
@@ -19,7 +19,7 @@ final class DokanCustomers {
     /**
      * Instance of self
      *
-     * @var DokanCustomers
+     * @var VendorDashboardBooster
      */
     private static $instance = null;
 
@@ -33,7 +33,7 @@ final class DokanCustomers {
     private $container = [];
 
     /**
-     * Constructor for the DokanCustomers class
+     * Constructor for the VendorDashboardBooster class
      *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
@@ -41,17 +41,17 @@ final class DokanCustomers {
     private function __construct() {
         $this->define_constants();
 
-        register_activation_hook( DOKAN_CUSTOMERS_FILE, [ $this, 'activate' ] );
-        register_deactivation_hook( DOKAN_CUSTOMERS_FILE, [ $this, 'deactivate' ] );
+        register_activation_hook( VENDOR_DASHBOARD_BOOSTER_FILE, [ $this, 'activate' ] );
+        register_deactivation_hook( VENDOR_DASHBOARD_BOOSTER_FILE, [ $this, 'deactivate' ] );
 
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
         add_action( 'woocommerce_flush_rewrite_rules', [ $this, 'flush_rewrite_rules' ] );
     }
 
     /**
-     * Initializes the DokanCustomers() class
+     * Initializes the VendorDashboardBooster() class
      *
-     * Checks for an existing DokanCustomers instance
+     * Checks for an existing VendorDashboardBooster instance
      * and if it doesn't find one, creates it.
      */
     public static function init() {
@@ -91,7 +91,7 @@ final class DokanCustomers {
     }
 
     /**
-     * Flush rewrite rules after dokan_customers is activated or woocommerce is activated
+     * Flush rewrite rules after VENDOR_DASHBOARD_BOOSTER is activated or woocommerce is activated
      *
      * @since 3.2.8
      */
@@ -113,15 +113,15 @@ final class DokanCustomers {
      * @return void
      */
     public function define_constants() {
-        $this->define( 'DOKAN_CUSTOMERS_PLUGIN_VERSION', $this->version );
-        $this->define( 'DOKAN_CUSTOMERS_DIR', dirname( DOKAN_CUSTOMERS_FILE ) );
-        $this->define( 'DOKAN_CUSTOMERS_INC_DIR', DOKAN_CUSTOMERS_DIR . '/includes' );
-        $this->define( 'DOKAN_CUSTOMERS_TEMPLATE_DIR', DOKAN_CUSTOMERS_DIR . '/templates' );
-        $this->define( 'DOKAN_CUSTOMERS_PLUGIN_ASSET', plugins_url( 'assets', DOKAN_CUSTOMERS_FILE ) );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_PLUGIN_VERSION', $this->version );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_DIR', dirname( VENDOR_DASHBOARD_BOOSTER_FILE ) );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_INC_DIR', VENDOR_DASHBOARD_BOOSTER_DIR . '/includes' );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_TEMPLATE_DIR', VENDOR_DASHBOARD_BOOSTER_DIR . '/templates' );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_PLUGIN_ASSET', plugins_url( 'assets', VENDOR_DASHBOARD_BOOSTER_FILE ) );
 
         // give a way to turn off loading styles and scripts from parent theme
-        $this->define( 'DOKAN_CUSTOMERS_LOAD_STYLE', true );
-        $this->define( 'DOKAN_CUSTOMERS_LOAD_SCRIPTS', true );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_LOAD_STYLE', true );
+        $this->define( 'VENDOR_DASHBOARD_BOOSTER_LOAD_SCRIPTS', true );
     }
 
     /**
@@ -153,7 +153,7 @@ final class DokanCustomers {
         $this->includes();
         $this->init_hooks();
 
-        do_action( 'dokan_customers_loaded' );
+        do_action( 'VENDOR_DASHBOARD_BOOSTER_loaded' );
     }
 
     /**
@@ -189,7 +189,7 @@ final class DokanCustomers {
     /**
      * Executed after all plugins are loaded
      *
-     * At this point dokan_customers Pro is loaded
+     * At this point VENDOR_DASHBOARD_BOOSTER Pro is loaded
      *
      * @since 2.8.7
      *

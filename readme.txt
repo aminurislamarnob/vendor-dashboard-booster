@@ -1,6 +1,6 @@
 === Dokan Customers ===
 Contributors: aminurislam01
-Tags: dokan, customer, multi vendor, dokan customer, woocommerce, ecommerce, my customer, dokan multi vendor
+Tags: dokan, multi vendor, dokan customer, woocommerce, dokan multi vendor
 Requires at least: 5.0.0
 Tested up to: 6.3.1
 Stable tag: 1.0.0

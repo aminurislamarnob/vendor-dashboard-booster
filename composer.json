@@ -1,17 +1,17 @@
 {
-    "name": "welabs/dokan-customers",
-    "description": "A dokan addon plugin which enable vendor wise customers features on each vendor panel.",
+    "name": "welabs/vendor-dashboard-booster",
+    "description": "A plugin which enhance vendor dashboard feature for Dokan multivendor plugin.",
     "license": "GPLv2 or later",
     "autoload": {
         "psr-4": {
-            "WeLabs\\DokanCustomers\\": "includes/"
+            "WeLabs\\VendorDashboardBooster\\": "includes/"
         }
     },
     "authors": [
         {
             "name": "Aminur Islam Arnob",
             "email": "eng.aminurislam@gmail.com",
-            "homepage": "https://wordpress.org/plugins/dokan-customers"
+            "homepage": "https://wordpress.org/plugins/vendor-dashboard-booster"
         }
     ],
     "minimum-stability": "dev",

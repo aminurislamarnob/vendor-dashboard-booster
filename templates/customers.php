@@ -1,12 +1,12 @@
 <?php
 /**
- *  Dokan Dashboard customers Template
+ *  Dashboard customers Template
  *
  *  Load customers related template
  *
  *  @package dokan
  */
-use WeLabs\DokanCustomers\ManageCustomers;
+use WeLabs\VendorDashboardBooster\ManageCustomers;
 ?>
 
 <?php do_action( 'dokan_dashboard_wrap_start' ); ?>
@@ -23,7 +23,7 @@ use WeLabs\DokanCustomers\ManageCustomers;
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_before' );
-        do_action( 'dokan_customers_content_before' );
+        do_action( 'VENDOR_DASHBOARD_BOOSTER_content_before' );
 
     ?>
 
@@ -41,13 +41,13 @@ use WeLabs\DokanCustomers\ManageCustomers;
         <?php
 
             /**
-             *  dokan_customers_content_inside_before hook
+             *  VENDOR_DASHBOARD_BOOSTER_content_inside_before hook
              *
              *  @hooked show_seller_enable_message
              *
              *  @since 2.4
              */
-            do_action( 'dokan_customers_content_inside_before' );
+            do_action( 'VENDOR_DASHBOARD_BOOSTER_content_inside_before' );
         ?>
 
 
@@ -139,11 +139,11 @@ use WeLabs\DokanCustomers\ManageCustomers;
         <?php
 
             /**
-             *  dokan_customers_content_inside_after hook
+             *  VENDOR_DASHBOARD_BOOSTER_content_inside_after hook
              *
              *  @since 2.4
              */
-            do_action( 'dokan_customers_content_inside_after' );
+            do_action( 'VENDOR_DASHBOARD_BOOSTER_content_inside_after' );
         ?>
 
     </div> <!-- #primary .content-area -->
@@ -152,12 +152,12 @@ use WeLabs\DokanCustomers\ManageCustomers;
 
         /**
          *  dokan_dashboard_content_after hook
-         *  dokan_customers_content_after hook
+         *  VENDOR_DASHBOARD_BOOSTER_content_after hook
          *
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_after' );
-        do_action( 'dokan_customers_content_after' );
+        do_action( 'VENDOR_DASHBOARD_BOOSTER_content_after' );
 
     ?>
 
