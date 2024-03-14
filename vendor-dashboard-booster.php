@@ -11,7 +11,7 @@ WC requires at least: 5.0.0
 Domain Path: /languages
 License: GPLv2 or later
  */
-use WeLabs\VendorDashboardBooster\VendorDashboardBooster;
+use WpEnhancers\VendorDashboardBooster\VendorDashboardBooster;
 
 // don't call the file directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,11 +27,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * Load VENDOR_DASHBOARD_BOOSTER Plugin when all plugins loaded
  *
- * @return \WeLabs\VendorDashboardBooster\VendorDashboardBooster;
+ * @return \WpEnhancers\VendorDashboardBooster\VendorDashboardBooster;
  */
-function welabs_vendor_dashboard_booster() {
+function WpEnhancers_vendor_dashboard_booster() {
     return VendorDashboardBooster::init();
 }
 
 // Lets Go....
-welabs_vendor_dashboard_booster();
+WpEnhancers_vendor_dashboard_booster();

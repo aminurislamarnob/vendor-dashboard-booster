@@ -6,7 +6,7 @@
  *
  *  @package dokan
  */
-use WeLabs\VendorDashboardBooster\ManageCustomers;
+use WpEnhancers\VendorDashboardBooster\ManageCustomers;
 ?>
 
 <?php do_action( 'dokan_dashboard_wrap_start' ); ?>

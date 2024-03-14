@@ -1,10 +1,10 @@
 {
-    "name": "welabs/vendor-dashboard-booster",
+    "name": "wpenhancers/vendor-dashboard-booster",
     "description": "A plugin which enhance vendor dashboard feature for Dokan multivendor plugin.",
     "license": "GPLv2 or later",
     "autoload": {
         "psr-4": {
-            "WeLabs\\VendorDashboardBooster\\": "includes/"
+            "WpEnhancers\\VendorDashboardBooster\\": "includes/"
         }
     },
     "authors": [

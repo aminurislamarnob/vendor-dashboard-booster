@@ -1,6 +1,6 @@
 <?php
 
-namespace WeLabs\VendorDashboardBooster;
+namespace WpEnhancers\VendorDashboardBooster;
 
 class ManageCustomers {
     /**
