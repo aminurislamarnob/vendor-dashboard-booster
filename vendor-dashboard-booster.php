@@ -10,7 +10,7 @@ Text Domain: vendor-dashboard-booster
 WC requires at least: 5.0.0
 Domain Path: /languages
 License: GPLv2 or later
- */
+*/
 use WpEnhancers\VendorDashboardBooster\VendorDashboardBooster;
 
 // don't call the file directly
@@ -29,9 +29,9 @@ require_once __DIR__ . '/vendor/autoload.php';
  *
  * @return \WpEnhancers\VendorDashboardBooster\VendorDashboardBooster;
  */
-function WpEnhancers_vendor_dashboard_booster() {
+function wpenhancers_vendor_dashboard_booster() {
     return VendorDashboardBooster::init();
 }
 
 // Lets Go....
-WpEnhancers_vendor_dashboard_booster();
+wpenhancers_vendor_dashboard_booster();
