@@ -18,7 +18,7 @@ class ManageCustomers {
      *
      * @return void
      */
-    public function flush(){
+    public function flush() {
         dokan()->rewrite->register_rule();
         flush_rewrite_rules();
     }
@@ -98,7 +98,7 @@ class ManageCustomers {
     public static function get_vendor_orders() {
         $query_args = [
             'seller_id' => dokan_get_current_user_id(),
-            'limit'     => 10000000,
+            'limit'     => -1,
             'return'    => 'ids',
         ];
         return dokan()->order->all( $query_args );
@@ -111,9 +111,16 @@ class ManageCustomers {
      */
     public static function get_vendor_customers() {
         global $wpdb;
-        $comma_separated_order_ids = implode( ',', self::get_vendor_orders() );
-		$customer_ids = $wpdb->get_col( "SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = '_customer_user' AND meta_value > 0 AND post_id IN ({$comma_separated_order_ids})" );
-        return $customer_ids;
+        $vendor_orders = self::get_vendor_orders();
+        $customers = [];
+        if ( ! empty( $vendor_orders ) ) {
+            foreach ( $vendor_orders as $order_id ) {
+                $order = wc_get_order( $order_id );
+                $customers[] = $order->get_customer_id();
+            }
+        }
+        $customers = array_unique( $customers );
+        return $customers;
     }
 
     /**

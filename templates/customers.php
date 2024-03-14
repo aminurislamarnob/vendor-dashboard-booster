@@ -23,7 +23,7 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_before' );
-        do_action( 'VENDOR_DASHBOARD_BOOSTER_content_before' );
+        do_action( 'vendor_dashboard_booster_content_before' );
 
     ?>
 
@@ -41,13 +41,13 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
         <?php
 
             /**
-             *  VENDOR_DASHBOARD_BOOSTER_content_inside_before hook
+             *  vendor_dashboard_booster_content_inside_before hook
              *
              *  @hooked show_seller_enable_message
              *
              *  @since 2.4
              */
-            do_action( 'VENDOR_DASHBOARD_BOOSTER_content_inside_before' );
+            do_action( 'vendor_dashboard_booster_content_inside_before' );
         ?>
 
 
@@ -82,13 +82,12 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
 					<?php
 					foreach ( $customers as $customer ) {
 						$customer_info = get_userdata( $customer );
-                        $customer_full_name = $customer_info->first_name . ' ' . $customer_info->last_name;
 						?>
                                 <tr>
-                                    <td><?php echo esc_html( $customer_full_name ); ?></td>
+                                    <td><?php echo esc_html( $customer_info->display_name ); ?></td>
                                     <td><a href="mailto:<?php echo esc_attr( $customer_info->user_email ); ?>"><?php echo esc_html( $customer_info->user_email ); ?></a></td>
                                     <td><?php echo esc_html( get_user_meta( $customer_info->ID, 'billing_phone', true ) ); ?></td>
-                                    <td><?php echo esc_html( count(dokan()->order->get_customer_order_ids_by_seller( $customer_info->ID, get_current_user_id() ) ) ); ?></td>
+                                    <td><?php echo esc_html( count( dokan()->order->get_customer_order_ids_by_seller( $customer_info->ID, get_current_user_id() ) ) ); ?></td>
                                     <td><?php echo ManageCustomers::get_total_spend_by_seller_customer( $customer_info->ID, get_current_user_id() ); ?></td>
                                     <td><?php echo esc_html( dokan_format_datetime( $customer_info->user_registered ) ); ?></td>
                                     <td><?php echo esc_html( ManageCustomers::get_formatted_address( 'billing', $customer_info->ID ) ); ?></td>
@@ -139,11 +138,11 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
         <?php
 
             /**
-             *  VENDOR_DASHBOARD_BOOSTER_content_inside_after hook
+             *  vendor_dashboard_booster_content_inside_after hook
              *
              *  @since 2.4
              */
-            do_action( 'VENDOR_DASHBOARD_BOOSTER_content_inside_after' );
+            do_action( 'vendor_dashboard_booster_content_inside_after' );
         ?>
 
     </div> <!-- #primary .content-area -->
@@ -152,12 +151,12 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
 
         /**
          *  dokan_dashboard_content_after hook
-         *  VENDOR_DASHBOARD_BOOSTER_content_after hook
+         *  vendor_dashboard_booster_content_after hook
          *
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_after' );
-        do_action( 'VENDOR_DASHBOARD_BOOSTER_content_after' );
+        do_action( 'vendor_dashboard_booster_content_after' );
 
     ?>
 
