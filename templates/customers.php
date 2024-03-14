@@ -27,12 +27,12 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
 
     ?>
 
-    <div class="dokan-dashboard-content dokan-customers-content">
+    <div class="dokan-dashboard-content vendor-dashboard-boosters-content">
 
         <header class="dokan-dashboard-header">
             <span class="left-header-content">
                 <h1 class="entry-title">
-                    <?php esc_html_e( 'Customers', 'dokan-customers' ); ?>
+                    <?php esc_html_e( 'Customers', 'vendor-dashboard-boosters' ); ?>
                 </h1>
             </span>
             <div class="dokan-clearfix"></div>
@@ -51,7 +51,7 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
         ?>
 
 
-        <article class="dokan-customers-area">
+        <article class="vendor-dashboard-boosters-area">
 
             <?php
                 $vendor_customers = ManageCustomers::get_vendor_customers();
@@ -68,14 +68,14 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
                     <table class="dokan-table dokan-table-striped vendor-customer-table">
                         <thead>
                             <tr>
-                                <th><?php esc_html_e( 'Name', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Email', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Phone', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Orders', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Total Spend', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Registered At', 'dokan-customers' ); ?></th>
-                                <th class="customer-billing-address"><?php esc_html_e( 'Billing Address', 'dokan-customers' ); ?></th>
-                                <th><?php esc_html_e( 'Actions', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Name', 'vendor-dashboard-boosters' ); ?></th>
+                                <th><?php esc_html_e( 'Email', 'vendor-dashboard-boosters' ); ?></th>
+                                <th><?php esc_html_e( 'Phone', 'vendor-dashboard-boosters' ); ?></th>
+                                <th><?php esc_html_e( 'Orders', 'vendor-dashboard-boosters' ); ?></th>
+                                <th><?php esc_html_e( 'Total Spend', 'vendor-dashboard-boosters' ); ?></th>
+                                <th><?php esc_html_e( 'Registered At', 'vendor-dashboard-boosters' ); ?></th>
+                                <th class="customer-billing-address"><?php esc_html_e( 'Billing Address', 'vendor-dashboard-boosters' ); ?></th>
+                                <th><?php esc_html_e( 'Actions', 'vendor-dashboard-boosters' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +128,7 @@ use WeLabs\VendorDashboardBooster\ManageCustomers;
 					<?php } else { ?>
 
                     <div class="dokan-error">
-                        <?php esc_html_e( 'No customer found', 'dokan-customers' ); ?>
+                        <?php esc_html_e( 'No customer found', 'vendor-dashboard-boosters' ); ?>
                     </div>
 
                 <?php } ?>
