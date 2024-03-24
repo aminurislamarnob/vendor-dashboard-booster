@@ -1,0 +1,48 @@
+table.vendor-customer-table tbody td a,
+table.vendor-customer-table tbody td .row-actions a {
+    color: #6d6d6d;
+}
+
+table.vendor-customer-table tbody td a:hover,
+table.vendor-customer-table tbody td .row-actions a:hover {
+    color: #000;
+}
+
+table.vendor-customer-table tbody td .row-actions .delete a:hover {
+    color: #ff0000;
+}
+
+table.vendor-customer-table tbody .row-actions {
+    font-size: 12px;
+}
+.vendor-customer-table tbody .row-actions {
+    visibility: hidden;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.vendor-customer-table tbody .row-actions .delete a {
+    color: #A05;
+}
+
+.vendor-customer-table tbody .row-actions .delete a:hover {
+    color: red;
+}
+
+.vendor-customer-table tbody tr:hover .row-actions {
+    visibility: visible;
+}
+table.dokan-table.dokan-table-striped.vendor-customer-table th {
+    text-align: left;
+}
+
+table.dokan-table.dokan-table-striped.vendor-customer-table {
+    border-collapse: collapse;
+}
+
+table.dokan-table.dokan-table-striped.vendor-customer-table thead tr th {
+    border-bottom: 0px;
+}
+.customer-billing-address{
+    width: 220px;
+}
