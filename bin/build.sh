@@ -66,7 +66,7 @@ zip -r -q vendor-dashboard-booster.zip vendor-dashboard-booster
 
 # Unzip folder for testing purposes
 status "Unzipping folder... 📂"
-unzip -q vendor-dashboard-booster.zip -d vendor-dashboard-booster
+unzip -q vendor-dashboard-booster.zip -d vendor-dashboard-booster-unzipped
 
 # remove the source directory
 rm -rf vendor-dashboard-booster
