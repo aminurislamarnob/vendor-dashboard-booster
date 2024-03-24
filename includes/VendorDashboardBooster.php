@@ -222,7 +222,7 @@ final class VendorDashboardBooster {
      * @return void
      */
     protected function get_dependency_message() {
-        return __( 'Dokan customer plugin is enabled but not effective. It requires WooCommerce & Dokan Lite(Free) plugins to work.', 'vendor-dashboard-boosters' );
+        return __( 'Dokan customer plugin is enabled but not effective. It requires WooCommerce & Dokan Lite(Free) plugins to work.', 'vendor-dashboard-booster' );
     }
 
     /**

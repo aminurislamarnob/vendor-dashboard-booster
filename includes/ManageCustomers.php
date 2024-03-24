@@ -70,7 +70,7 @@ class ManageCustomers {
      */
     public function dokan_add_customers_menu( $urls ) {
         $urls['customers'] = array(
-            'title' => __( 'Customers', 'vendor-dashboard-boosters' ),
+            'title' => __( 'Customers', 'vendor-dashboard-booster' ),
             'icon'  => '<i class="fas fa-users"></i>',
             'url'   => dokan_get_navigation_url( 'customers' ),
             'pos'   => 51,

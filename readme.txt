@@ -20,5 +20,5 @@ This plugin requires WooCommerce and Dokan Lite (Free) plugins to be activated i
 = FOR STANDARD INSTALLATION: =
 Installing this plugin is very easy just like any other WordPress plugin. Please follow these instructions:
 1. In your WordPress admin panel, go to Plugins > New Plugin, search for "Dokan Customers" and click on "Install Now"
-2. Alternatively, download the plugin and upload the vendor-dashboard-boosters.zip to your plugins directory, which usually is /wp-content/plugins/.
+2. Alternatively, download the plugin and upload the vendor-dashboard-booster.zip to your plugins directory, which usually is /wp-content/plugins/.
 3. Activate the plugin from plugins page.
