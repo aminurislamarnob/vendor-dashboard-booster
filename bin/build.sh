@@ -64,8 +64,12 @@ status "Creating archive... 🎁"
 cd ..
 zip -r -q vendor-dashboard-booster.zip vendor-dashboard-booster
 
+# Unzip folder for testing purposes
+status "Unzipping folder... 📂"
+unzip -q vendor-dashboard-booster.zip -d vendor-dashboard-booster
+
 # remove the source directory
 rm -rf vendor-dashboard-booster
 
-success "Done. You've built Dokan Customers! 🎉 "
+success "Done. You've built Vendor Dashboard Booster! 🎉 "
 echo -e "\n${BLUE_BOLD}File Path${COLOR_RESET}: ${YELLOW_BOLD}$(pwd)/vendor-dashboard-booster.zip${COLOR_RESET} \n"
