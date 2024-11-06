@@ -1,17 +1,17 @@
 {
-    "name": "wpenhancers/vendor-dashboard-booster",
+    "name": "pluginizelab/dokan-customers",
     "description": "A plugin which enhance vendor dashboard feature for Dokan multivendor plugin.",
     "license": "GPLv2 or later",
     "autoload": {
         "psr-4": {
-            "WpEnhancers\\VendorDashboardBooster\\": "includes/"
+            "PluginizeLab\\DokanCustomers\\": "includes/"
         }
     },
     "authors": [
         {
             "name": "Aminur Islam Arnob",
             "email": "eng.aminurislam@gmail.com",
-            "homepage": "https://wordpress.org/plugins/vendor-dashboard-booster"
+            "homepage": "https://wordpress.org/plugins/dokan-customers"
         }
     ],
     "minimum-stability": "dev",
@@ -24,7 +24,7 @@
         "wp-phpunit/wp-phpunit": "^6.1",
         "yoast/phpunit-polyfills": "^1.0"
     },
-   "scripts": {
+    "scripts": {
         "phpcs": [
             "vendor/bin/phpcs -p -s"
         ],

@@ -7,7 +7,7 @@ set -e
 cd "$(dirname "$0")"
 cd ..
 DIR=$(pwd)
-BUILD_DIR="$DIR/build/vendor-dashboard-booster"
+BUILD_DIR="$DIR/build/dokan-customers"
 
 # Enable nicer messaging for build status.
 BLUE_BOLD='\033[1;34m'
@@ -43,7 +43,7 @@ status "Generating build... 👷‍♀️"
 
 # Copy all files
 status "Copying files... ✌️"
-FILES=(vendor-dashboard-booster.php readme.txt dist includes templates assets languages composer.json composer.lock)
+FILES=(dokan-customers.php readme.txt dist includes templates assets languages composer.json composer.lock)
 
 for file in ${FILES[@]}; do
     if [ -f "$file" ] || [ -d "$file" ]; then
@@ -62,14 +62,14 @@ rm composer.json composer.lock
 # go one up, to the build dir
 status "Creating archive... 🎁"
 cd ..
-zip -r -q vendor-dashboard-booster.zip vendor-dashboard-booster
+zip -r -q dokan-customers.zip dokan-customers
 
 # Unzip folder for testing purposes
 status "Unzipping folder... 📂"
-unzip -q vendor-dashboard-booster.zip -d vendor-dashboard-booster-unzipped
+unzip -q dokan-customers.zip -d dokan-customers-unzipped
 
 # remove the source directory
-rm -rf vendor-dashboard-booster
+rm -rf dokan-customers
 
 success "Done. You've built Vendor Dashboard Booster! 🎉 "
-echo -e "\n${BLUE_BOLD}File Path${COLOR_RESET}: ${YELLOW_BOLD}$(pwd)/vendor-dashboard-booster.zip${COLOR_RESET} \n"
+echo -e "\n${BLUE_BOLD}File Path${COLOR_RESET}: ${YELLOW_BOLD}$(pwd)/dokan-customers.zip${COLOR_RESET} \n"
