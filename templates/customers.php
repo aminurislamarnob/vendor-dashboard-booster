@@ -6,7 +6,7 @@
  *
  *  @package dokan
  */
-use WpEnhancers\VendorDashboardBooster\ManageCustomers;
+use PluginizeLab\DokanCustomers\ManageCustomers;
 ?>
 
 <?php do_action( 'dokan_dashboard_wrap_start' ); ?>
@@ -23,16 +23,16 @@ use WpEnhancers\VendorDashboardBooster\ManageCustomers;
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_before' );
-        do_action( 'vendor_dashboard_booster_content_before' );
+        do_action( 'dokan_customers_content_before' );
 
     ?>
 
-    <div class="dokan-dashboard-content vendor-dashboard-booster-content">
+    <div class="dokan-dashboard-content dokan-customers-content">
 
         <header class="dokan-dashboard-header">
             <span class="left-header-content">
                 <h1 class="entry-title">
-                    <?php esc_html_e( 'Customers', 'vendor-dashboard-booster' ); ?>
+                    <?php esc_html_e( 'Customers', 'dokan-customers' ); ?>
                 </h1>
             </span>
             <div class="dokan-clearfix"></div>
@@ -41,17 +41,17 @@ use WpEnhancers\VendorDashboardBooster\ManageCustomers;
         <?php
 
             /**
-             *  vendor_dashboard_booster_content_inside_before hook
+             *  dokan_customers_content_inside_before hook
              *
              *  @hooked show_seller_enable_message
              *
              *  @since 2.4
              */
-            do_action( 'vendor_dashboard_booster_content_inside_before' );
+            do_action( 'dokan_customers_content_inside_before' );
         ?>
 
 
-        <article class="vendor-dashboard-booster-area">
+        <article class="dokan-customers-area">
 
             <?php
                 $vendor_customers = ManageCustomers::get_vendor_customers();
@@ -68,14 +68,14 @@ use WpEnhancers\VendorDashboardBooster\ManageCustomers;
                     <table class="dokan-table dokan-table-striped vendor-customer-table">
                         <thead>
                             <tr>
-                                <th><?php esc_html_e( 'Name', 'vendor-dashboard-booster' ); ?></th>
-                                <th><?php esc_html_e( 'Email', 'vendor-dashboard-booster' ); ?></th>
-                                <th><?php esc_html_e( 'Phone', 'vendor-dashboard-booster' ); ?></th>
-                                <th><?php esc_html_e( 'Orders', 'vendor-dashboard-booster' ); ?></th>
-                                <th><?php esc_html_e( 'Total Spend', 'vendor-dashboard-booster' ); ?></th>
-                                <th><?php esc_html_e( 'Registered At', 'vendor-dashboard-booster' ); ?></th>
-                                <th class="customer-billing-address"><?php esc_html_e( 'Billing Address', 'vendor-dashboard-booster' ); ?></th>
-                                <th><?php esc_html_e( 'Actions', 'vendor-dashboard-booster' ); ?></th>
+                                <th><?php esc_html_e( 'Name', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Email', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Phone', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Orders', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Total Spend', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Registered At', 'dokan-customers' ); ?></th>
+                                <th class="customer-billing-address"><?php esc_html_e( 'Billing Address', 'dokan-customers' ); ?></th>
+                                <th><?php esc_html_e( 'Actions', 'dokan-customers' ); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,7 +128,7 @@ use WpEnhancers\VendorDashboardBooster\ManageCustomers;
 					<?php } else { ?>
 
                     <div class="dokan-error">
-                        <?php esc_html_e( 'No customer found', 'vendor-dashboard-booster' ); ?>
+                        <?php esc_html_e( 'No customer found', 'dokan-customers' ); ?>
                     </div>
 
                 <?php } ?>
@@ -138,11 +138,11 @@ use WpEnhancers\VendorDashboardBooster\ManageCustomers;
         <?php
 
             /**
-             *  vendor_dashboard_booster_content_inside_after hook
+             *  dokan_customers_content_inside_after hook
              *
              *  @since 2.4
              */
-            do_action( 'vendor_dashboard_booster_content_inside_after' );
+            do_action( 'dokan_customers_content_inside_after' );
         ?>
 
     </div> <!-- #primary .content-area -->
@@ -151,12 +151,12 @@ use WpEnhancers\VendorDashboardBooster\ManageCustomers;
 
         /**
          *  dokan_dashboard_content_after hook
-         *  vendor_dashboard_booster_content_after hook
+         *  dokan_customers_content_after hook
          *
          *  @since 2.4
          */
         do_action( 'dokan_dashboard_content_after' );
-        do_action( 'vendor_dashboard_booster_content_after' );
+        do_action( 'dokan_customers_content_after' );
 
     ?>
 

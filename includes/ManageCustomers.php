@@ -1,6 +1,6 @@
 <?php
 
-namespace WpEnhancers\VendorDashboardBooster;
+namespace PluginizeLab\DokanCustomers;
 
 class ManageCustomers {
     /**
@@ -70,7 +70,7 @@ class ManageCustomers {
      */
     public function dokan_add_customers_menu( $urls ) {
         $urls['customers'] = array(
-            'title' => __( 'Customers', 'vendor-dashboard-booster' ),
+            'title' => __( 'Customers', 'dokan-customers' ),
             'icon'  => '<i class="fas fa-users"></i>',
             'url'   => dokan_get_navigation_url( 'customers' ),
             'pos'   => 51,
@@ -86,7 +86,7 @@ class ManageCustomers {
      */
     public function dokan_load_customers_template( $query_vars ) {
         if ( isset( $query_vars['customers'] ) ) {
-            require_once VENDOR_DASHBOARD_BOOSTER_TEMPLATE_DIR . '/customers.php';
+            require_once DOKAN_CUSTOMERS_TEMPLATE_DIR . '/customers.php';
 		}
     }
 
@@ -116,7 +116,11 @@ class ManageCustomers {
         if ( ! empty( $vendor_orders ) ) {
             foreach ( $vendor_orders as $order_id ) {
                 $order = wc_get_order( $order_id );
-                $customers[] = $order->get_customer_id();
+                $customer_id = $order->get_customer_id();
+
+                if( !empty( $customer_id ) ){
+                    $customers[] = $order->get_customer_id();
+                }
             }
         }
         $customers = array_unique( $customers );

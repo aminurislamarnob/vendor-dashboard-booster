@@ -4,17 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6c7f99e03caceb515d1d964231af9765
+class ComposerStaticInit0b96720b6d7a237569be30d7bf0081eb
 {
     public static $prefixLengthsPsr4 = array (
-        'W' => 
+        'P' => 
         array (
-            'WpEnhancers\\VendorDashboardBooster\\' => 35,
+            'PluginizeLab\\DokanCustomers\\' => 28,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'WpEnhancers\\VendorDashboardBooster\\' => 
+        'PluginizeLab\\DokanCustomers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
@@ -22,17 +22,17 @@ class ComposerStaticInit6c7f99e03caceb515d1d964231af9765
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'WpEnhancers\\VendorDashboardBooster\\Assets' => __DIR__ . '/../..' . '/includes/Assets.php',
-        'WpEnhancers\\VendorDashboardBooster\\ManageCustomers' => __DIR__ . '/../..' . '/includes/ManageCustomers.php',
-        'WpEnhancers\\VendorDashboardBooster\\VendorDashboardBooster' => __DIR__ . '/../..' . '/includes/VendorDashboardBooster.php',
+        'PluginizeLab\\DokanCustomers\\Assets' => __DIR__ . '/../..' . '/includes/Assets.php',
+        'PluginizeLab\\DokanCustomers\\DokanCustomers' => __DIR__ . '/../..' . '/includes/DokanCustomers.php',
+        'PluginizeLab\\DokanCustomers\\ManageCustomers' => __DIR__ . '/../..' . '/includes/ManageCustomers.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit6c7f99e03caceb515d1d964231af9765::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit6c7f99e03caceb515d1d964231af9765::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit6c7f99e03caceb515d1d964231af9765::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0b96720b6d7a237569be30d7bf0081eb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0b96720b6d7a237569be30d7bf0081eb::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit0b96720b6d7a237569be30d7bf0081eb::$classMap;
 
         }, null, ClassLoader::class);
     }

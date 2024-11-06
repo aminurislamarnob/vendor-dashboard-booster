@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'WpEnhancers\\VendorDashboardBooster\\Assets' => $baseDir . '/includes/Assets.php',
-    'WpEnhancers\\VendorDashboardBooster\\ManageCustomers' => $baseDir . '/includes/ManageCustomers.php',
-    'WpEnhancers\\VendorDashboardBooster\\VendorDashboardBooster' => $baseDir . '/includes/VendorDashboardBooster.php',
+    'PluginizeLab\\DokanCustomers\\Assets' => $baseDir . '/includes/Assets.php',
+    'PluginizeLab\\DokanCustomers\\DokanCustomers' => $baseDir . '/includes/DokanCustomers.php',
+    'PluginizeLab\\DokanCustomers\\ManageCustomers' => $baseDir . '/includes/ManageCustomers.php',
 );

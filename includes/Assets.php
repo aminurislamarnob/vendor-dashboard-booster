@@ -1,6 +1,6 @@
 <?php
 
-namespace WpEnhancers\VendorDashboardBooster;
+namespace PluginizeLab\DokanCustomers;
 
 class Assets {
     /**
@@ -34,11 +34,11 @@ class Assets {
      * @return void
      */
     public function register_scripts() {
-        $admin_script       = VENDOR_DASHBOARD_BOOSTER_PLUGIN_ASSET . '/admin/script.js';
-        $frontend_script    = VENDOR_DASHBOARD_BOOSTER_PLUGIN_ASSET . '/frontend/script.js';
+        $admin_script       = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/admin/script.js';
+        $frontend_script    = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/frontend/script.js';
 
-        wp_register_script( 'VENDOR_DASHBOARD_BOOSTER_admin_script', $admin_script, [], VENDOR_DASHBOARD_BOOSTER_PLUGIN_VERSION, true );
-        wp_register_script( 'VENDOR_DASHBOARD_BOOSTER_script', $frontend_script, [], VENDOR_DASHBOARD_BOOSTER_PLUGIN_VERSION, true );
+        wp_register_script( 'dokan_customers_admin_script', $admin_script, [], DOKAN_CUSTOMERS_PLUGIN_VERSION, true );
+        wp_register_script( 'dokan_customers_script', $frontend_script, [], DOKAN_CUSTOMERS_PLUGIN_VERSION, true );
     }
 
     /**
@@ -47,11 +47,11 @@ class Assets {
      * @return void
      */
     public function register_styles() {
-        $admin_style       = VENDOR_DASHBOARD_BOOSTER_PLUGIN_ASSET . '/admin/style.css';
-        $frontend_style    = VENDOR_DASHBOARD_BOOSTER_PLUGIN_ASSET . '/frontend/style.css';
+        $admin_style       = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/admin/style.css';
+        $frontend_style    = DOKAN_CUSTOMERS_PLUGIN_ASSET . '/frontend/style.css';
 
-        wp_register_style( 'vendor_dashboard_booster_admin_style', $admin_style, [], VENDOR_DASHBOARD_BOOSTER_PLUGIN_VERSION );
-        wp_register_style( 'vendor_dashboard_booster_style', $frontend_style, [], VENDOR_DASHBOARD_BOOSTER_PLUGIN_VERSION );
+        wp_register_style( 'dokan_customers_admin_style', $admin_style, [], DOKAN_CUSTOMERS_PLUGIN_VERSION );
+        wp_register_style( 'dokan_customers_style', $frontend_style, [], DOKAN_CUSTOMERS_PLUGIN_VERSION );
     }
 
     /**
@@ -60,9 +60,9 @@ class Assets {
      * @return void
      */
     public function enqueue_admin_scripts() {
-        wp_enqueue_script( 'vendor_dashboard_booster_admin_script' );
+        wp_enqueue_script( 'dokan_customers_admin_script' );
         wp_localize_script(
-            'vendor_dashboard_booster_admin_script', 'Vendor_Dashboard_Booster_Admin', []
+            'dokan_customers_admin_script', 'Vendor_Dashboard_Booster_Admin', []
         );
     }
 
@@ -72,10 +72,10 @@ class Assets {
      * @return void
      */
     public function enqueue_front_scripts() {
-        wp_enqueue_style( 'vendor_dashboard_booster_style' );
-        // wp_enqueue_script( 'VENDOR_DASHBOARD_BOOSTER_script' );
+        wp_enqueue_style( 'dokan_customers_style' );
+        // wp_enqueue_script( 'DOKAN_CUSTOMERS_script' );
         // wp_localize_script(
-        //     'VENDOR_DASHBOARD_BOOSTER_script', 'VENDOR_DASHBOARD_BOOSTER', []
+        //     'DOKAN_CUSTOMERS_script', 'DOKAN_CUSTOMERS', []
         // );
     }
 }
