@@ -14,7 +14,7 @@ final class DokanCustomers {
      *
      * @var string
      */
-    public $version = '1.1.0';
+    public $version = '1.2.0';
 
     /**
      * Instance of self
