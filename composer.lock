@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b96720b6d7a237569be30d7bf0081eb",
+    "content-hash": "b1b6b7eb719b242af851f9e94abf4a8b",
     "packages": [],
     "packages-dev": [
         {
@@ -2119,12 +2119,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast/PHPUnit-Polyfills.git",
-                "reference": "a4a261f6fb8ed016a9e9ea287ead829f232bc3f7"
+                "reference": "624efa19be4a131f1ab2a53c19b2021148994f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast/PHPUnit-Polyfills/zipball/a4a261f6fb8ed016a9e9ea287ead829f232bc3f7",
-                "reference": "a4a261f6fb8ed016a9e9ea287ead829f232bc3f7",
+                "url": "https://api.github.com/repos/Yoast/PHPUnit-Polyfills/zipball/624efa19be4a131f1ab2a53c19b2021148994f11",
+                "reference": "624efa19be4a131f1ab2a53c19b2021148994f11",
                 "shasum": ""
             },
             "require": {
@@ -2174,7 +2174,7 @@
                 "security": "https://github.com/Yoast/PHPUnit-Polyfills/security/policy",
                 "source": "https://github.com/Yoast/PHPUnit-Polyfills"
             },
-            "time": "2024-10-13T18:33:27+00:00"
+            "time": "2024-11-07T13:19:17+00:00"
         }
     ],
     "aliases": [],
