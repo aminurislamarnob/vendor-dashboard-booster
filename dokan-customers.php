@@ -3,7 +3,7 @@
 Plugin Name: Customer Management for Dokan
 Plugin URI:  https://wordpress.org/plugins/dokan-customers/
 Description: Enable customer management feature on the Dokan vendor dashboard.
-Version: 1.0.0
+Version: 1.2.0
 Author: Aminur Islam
 Author URI: https://github.com/aminurislamarnob
 Text Domain: dokan-customers
