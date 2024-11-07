@@ -1,4 +1,4 @@
-=== Vendor Dashboard Booster For Dokan ===
+=== Customer Management for Dokan ===
 Contributors: aminurislam01
 Tags: dokan, multi vendor, dokan customer, woocommerce, dokan multi vendor
 Requires at least: 5.0.0
@@ -8,7 +8,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin simply enable vendor customer's list page on dokan vendor panel.
+This plugin simply enable vendor customer's management feature on the dokan vendor dashboard.
 
 == Description ==
 
